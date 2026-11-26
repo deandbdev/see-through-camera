@@ -75,6 +75,10 @@ other red patches may be false alarms; we did not verify them one by one. This r
 much lower close to the cupboard), successful fixes were only 37 of 101, and position error was 0.3 cm median,
 1.4 cm max.
 
+![Drone view: the remembered bin, no longer there, is red](docs/changed_bin.png)
+
+*Pale blue is memory, red is a conflict, hatching marks positions guessed by the depth model.*
+
 ### Position without markers
 
 The landmark map is built from one drive and tested on another. Everything within 22 cm of every marker is
@@ -129,6 +133,8 @@ Mean absolute error on the held-out strip:
 | inside, 20 cm | 14.2 | 14.6 | 13.8 | 28.1 |
 | beyond the edge, 5 cm | 11.1 | 11.6 | 15.3 | 37.7 |
 | beyond the edge, 20 cm | 19.1 | 18.1 | 19.7 | 33.3 |
+
+![Held-out floor: truth, hidden, Telea, NS, our net, SD-Turbo](docs/floor_fill.png)
 
 The net learned to paint a smooth average and does **not** beat classical inpainting. SD-Turbo paints sharp
 stripes that are not the real ones. So never-seen floor stays black. A likely cause is the pixel loss with
