@@ -28,17 +28,21 @@ camera looks through the place where it used to be.
 
 ## How it works
 
-```mermaid
-flowchart LR
-  C[Camera frames] --> O[Optical flow odometry on the floor]
-  L[Landmarks or ArUco markers] --> P[Pose]
-  O --> P
-  C --> D[Monocular depth, scaled against the floor]
-  P --> M[Floor mosaic + 3D points]
-  D --> M
-  E[Memory of an earlier drive] --> X[Compare: confirmed, changed, remembered]
-  M --> X
-  X --> V[Drone view that marks what is seen, remembered, guessed]
+```text
+ Camera frames ----+--> Optical flow odometry on the floor --+
+                   |                                         |
+                   |    Landmarks or ArUco markers ----------+--> Pose
+                   |                                                |
+                   +--> Monocular depth, scaled against the floor --+
+                                                                    |
+                                                                    v
+ Memory of an earlier drive                      Floor mosaic + 3D points
+             |                                                      |
+             +--------------------> Compare <-----------------------+
+                         (confirmed / changed / remembered)
+                                        |
+                                        v
+                 Drone view that marks what is seen, remembered, guessed
 ```
 
 1. **Calibration.** A chessboard gives lens distortion and the camera pose above the floor.
