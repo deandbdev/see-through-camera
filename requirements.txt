@@ -1,0 +1,9 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+numpy==1.26.4
+# ArUco е в основния пакет (от 4.7), contrib не трябва
+opencv-python==4.10.0.84
+diffusers==0.32.2
+transformers==4.48.3
+accelerate==1.3.0
